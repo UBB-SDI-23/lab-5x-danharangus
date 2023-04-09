@@ -14,6 +14,8 @@ import {
   TextField,
 } from "@material-ui/core";
 
+const API_URL = 'api'
+
 export default function App() {
   const [cars, setCars] = useState([]);
   const [newCar, setNewCar] = useState({
@@ -33,7 +35,7 @@ export default function App() {
 
   const getCars = () => {
     axios
-      .get("/api/cars/")
+      .get(`../${API_URL}/cars`)
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
