@@ -14,8 +14,6 @@ import {
   TextField,
 } from "@material-ui/core";
 
-const API_URL = 'api'
-
 export default function App() {
   const [cars, setCars] = useState([]);
   const [newCar, setNewCar] = useState({
