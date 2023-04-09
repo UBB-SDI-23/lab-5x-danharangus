@@ -35,7 +35,7 @@ export default function App() {
 
   const getCars = () => {
     axios
-      .get(`../${API_URL}/cars`)
+      .get(`../${API_URL}/cars/`)
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
