@@ -14,6 +14,8 @@ import {
   TextField,
 } from "@material-ui/core";
 
+const API_URL = "api"
+
 export default function App() {
   const [cars, setCars] = useState([]);
   const [newCar, setNewCar] = useState({
@@ -33,7 +35,7 @@ export default function App() {
 
   const getCars = () => {
     axios
-      .get(`http://localhost:8080/cars`)
+      .get("/api/cars/")
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
@@ -51,7 +53,7 @@ export default function App() {
 
     if (editCar) {
       axios
-        .put(`api/cars/${editCar.id}`, newCar)
+        .put(`/api/cars/${editCar.id}`, newCar)
         .then(() => {
           setEditCar(null);
           setNewCar({
@@ -66,7 +68,7 @@ export default function App() {
         .catch((error) => console.log(error));
     } else {
       axios
-        .post("api/cars", newCar)
+        .post("/api/cars", newCar)
         .then(() => {
           setNewCar({
             make: "",
@@ -83,7 +85,7 @@ export default function App() {
 
   const handleDeleteCar = (id) => {
     axios
-      .delete(`api/cars/${id}`)
+      .delete(`/api/cars/${id}`)
       .then(() => getCars())
       .catch((error) => console.log(error));
   };
@@ -97,7 +99,7 @@ export default function App() {
     event.preventDefault();
 
     axios
-      .get(`api/cars/year/${filterYear}`)
+      .get(`/api/cars/year/${filterYear}`)
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
