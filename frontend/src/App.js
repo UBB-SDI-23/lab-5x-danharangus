@@ -33,7 +33,7 @@ export default function App() {
 
   const getCars = () => {
     axios
-      .get("/api/cars/")
+      .get("/api/cars")
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
@@ -51,7 +51,7 @@ export default function App() {
 
     if (editCar) {
       axios
-        .put(`/api/cars/${editCar.id}`, newCar)
+        .put(`/api/cars${editCar.id}`, newCar)
         .then(() => {
           setEditCar(null);
           setNewCar({
