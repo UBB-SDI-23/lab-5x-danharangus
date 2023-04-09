@@ -25,6 +25,7 @@ export default function App() {
   });
   const [filterYear, setFilterYear] = useState("");
   const [editCar, setEditCar] = useState(null);
+  const [sortCriteria, setSortCriteria] = useState("make");
 
   useEffect(() => {
     getCars();
@@ -32,7 +33,7 @@ export default function App() {
 
   const getCars = () => {
     axios
-      .get("http://localhost:8080/cars")
+      .get("api/cars")
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
@@ -50,7 +51,7 @@ export default function App() {
 
     if (editCar) {
       axios
-        .put(`http://localhost:8080/cars/${editCar.id}`, newCar)
+        .put(`api/cars/${editCar.id}`, newCar)
         .then(() => {
           setEditCar(null);
           setNewCar({
@@ -65,7 +66,7 @@ export default function App() {
         .catch((error) => console.log(error));
     } else {
       axios
-        .post("http://localhost:8080/cars", newCar)
+        .post("api/cars", newCar)
         .then(() => {
           setNewCar({
             make: "",
@@ -82,7 +83,7 @@ export default function App() {
 
   const handleDeleteCar = (id) => {
     axios
-      .delete(`http://localhost:8080/cars/${id}`)
+      .delete(`api/cars/${id}`)
       .then(() => getCars())
       .catch((error) => console.log(error));
   };
@@ -96,14 +97,18 @@ export default function App() {
     event.preventDefault();
 
     axios
-      .get(`http://localhost:8080/cars/year/${filterYear}`)
+      .get(`api/cars/year/${filterYear}`)
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
 
+  const handleSortCriteriaChange = (name) => {
+    setSortCriteria(name);
+    console.log(sortCriteria)
+  };
+
   return (
     <div>
-      {/* Add Car Form */}
       <h2>{editCar ? "Edit Car" : "Add Car"}</h2>
       <form onSubmit={handleAddCarSubmit}>
         <TextField
@@ -150,7 +155,6 @@ export default function App() {
           {editCar ? "Save" : "Add"}
           </Button>
           </form>
-          {/* Filter Cars Form */}
   <h2>Filter Cars</h2>
   <form onSubmit={handleFilterCarsSubmit}>
     <TextField
@@ -166,23 +170,71 @@ export default function App() {
     </Button>
   </form>
 
-  {/* Cars Table */}
   <h2>Cars</h2>
   <TableContainer component={Paper}>
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell>Make</TableCell>
-          <TableCell>Model</TableCell>
-          <TableCell>Year</TableCell>
-          <TableCell>Price</TableCell>
+          <TableCell>
+            </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>
+          <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                name="make"
+                onClick={() => handleSortCriteriaChange("make")}
+          >
+              Sort
+          </Button>
+            Make
+          </TableCell>
+          <TableCell>
+            <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  name="model"
+                  onClick={() => handleSortCriteriaChange("model")}
+            >
+                Sort
+            </Button>
+            Model
+          </TableCell>
+          <TableCell>
+            <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  name="year"
+                  onClick={() => handleSortCriteriaChange("year")}
+            >
+                Sort
+            </Button>
+            Year
+          </TableCell>
+          <TableCell>
+          <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                name="make"
+                onClick={() => handleSortCriteriaChange("price")}
+          >
+              Sort
+          </Button>
+            Price
+          </TableCell>
           <TableCell>Electric</TableCell>
           <TableCell>Edit</TableCell>
           <TableCell>Delete</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
-        {cars.map((car) => (
+        {cars.sort((a, b) => a[sortCriteria] > b[sortCriteria] ? 1 : -1)
+        .map((car) => (
           <TableRow key={car.id}>
             <TableCell>{car.make}</TableCell>
             <TableCell>{car.model}</TableCell>
