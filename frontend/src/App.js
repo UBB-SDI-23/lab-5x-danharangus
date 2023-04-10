@@ -52,7 +52,7 @@ export default function App() {
 
     if (editCar) {
       axios
-        .put(`/api/cars/${editCar.id}`, newCar)
+        .put(`http://sdilab-env.eba-2gmi8xpr.us-east-1.elasticbeanstalk.com/cars/${editCar.id}`, newCar)
         .then(() => {
           setEditCar(null);
           setNewCar({
@@ -67,7 +67,7 @@ export default function App() {
         .catch((error) => console.log(error));
     } else {
       axios
-        .post("/api/cars", newCar)
+        .post("http://sdilab-env.eba-2gmi8xpr.us-east-1.elasticbeanstalk.com/cars", newCar)
         .then(() => {
           setNewCar({
             make: "",
@@ -84,7 +84,7 @@ export default function App() {
 
   const handleDeleteCar = (id) => {
     axios
-      .delete(`/api/cars/${id}`)
+      .delete(`http://sdilab-env.eba-2gmi8xpr.us-east-1.elasticbeanstalk.com/cars/${id}`)
       .then(() => getCars())
       .catch((error) => console.log(error));
   };
@@ -98,7 +98,7 @@ export default function App() {
     event.preventDefault();
 
     axios
-      .get(`/api/cars/year/${filterYear}`)
+      .get(`http://sdilab-env.eba-2gmi8xpr.us-east-1.elasticbeanstalk.com/cars/year/${filterYear}`)
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
