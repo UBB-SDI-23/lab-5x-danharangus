@@ -34,7 +34,7 @@ export default function App() {
 
   const getCars = () => {
     axios
-      .get("/api/cars")
+      .get("http://sdilab-env.eba-2gmi8xpr.us-east-1.elasticbeanstalk.com/cars")
       .then((response) => setCars(response.data))
       .catch((error) => console.log(error));
   };
