@@ -1,12 +1,12 @@
-TRUNCATE TABLE car_dealership RESTART IDENTITY CASCADE;INSERT INTO CarDealership (name, address, phone, founding_year, email_address) VALUES ('Clay, Campbell and Elliott', '635 Rebecca Manor Suite 234
-Michaelport, VA 54162', '001-253-055-1148x73800', '1971', 'barbara82@example.net');
-INSERT INTO car_dealership (name, address, phone, founding_year, email_address) VALUES ('Grant, Maldonado and Richard', '443 Evans Curve
-New Marilyn, FM 23576', '760.636.6885', '2007', 'larsengerald@example.com'),('Gutierrez Group', '6972 Robbins Mountains
-Stevensonstad, TN 03431', '205-627-8241x83001', '2012', 'fwebb@example.net'),('Stewart-Phillips', '06630 Cox Squares
-North Hannahland, AZ 78910', '(829)003-7855', '2016', 'johnsonanne@example.net'),('Brown-Aguirre', '763 Brian Street Suite 717
-Lake Lesliechester, TX 80058', '(560)748-3585x448', '1963', 'leslie90@example.net'),('Garrett-Delacruz', '73194 Jennifer Station Suite 480
-New Ronald, NV 49784', '+1-144-939-4249x91527', '1980', 'bcampbell@example.org'),('Campbell-Vega', '8179 Justin Forks
-Wilsonstad, NC 92471', '004-155-3041x2533', '2005', 'micheal96@example.org'),('Moore-Li', '08522 Rachael Isle Suite 125
-Lake Jessicatown, VA 06287', '001-916-482-9365x864', '1992', 'christy13@example.net'),('Smith, Weaver and Bradford', '799 Harris Corner Apt. 572
-Lake Jessicaport, DC 55900', '(913)209-7443', '1968', 'sergiofisher@example.com'),('Gutierrez Ltd', '2525 Thomas Dale Suite 929
-Nathanielbury, MT 51106', '725.887.8045', '2017', 'frank20@example.net');
+TRUNCATE TABLE car_dealership RESTART IDENTITY CASCADE;INSERT INTO car_dealership (name, address, phone, founding_year, email_address) VALUES ('Jefferson, Li and Potts', '3480 Anderson Crescent
+South Kimshire, MI 80196', '(203)341-9023x1685', '1979', 'zbanks@example.org');
+INSERT INTO car_dealership (name, address, phone, founding_year, email_address) VALUES ('Hudson PLC', '6203 Alexandra Summit
+Nixonview, NV 52385', '2889971926', '1974', 'yodom@example.net'),('Roberson-Weber', '010 Floyd Drive Apt. 361
+Lake Davidbury, NM 50492', '082.293.6505x78446', '1976', 'carl63@example.org'),('Cochran, Jackson and Torres', '9305 Tammy Summit
+West Traceyburgh, MP 04213', '001-108-759-2482x216', '1987', 'mullinserik@example.net'),('Arias-Simmons', '465 Devin Tunnel
+Bryanhaven, MH 43192', '+1-026-703-9746', '1963', 'briannaromero@example.net'),('Porter, Fox and Bradshaw', '574 Mcintosh Parks
+West Ralph, MT 61455', '+1-545-993-3904x662', '1963', 'cwashington@example.net'),('Ortiz-Joyce', '514 Christopher Crossroad Suite 550
+Kevinville, DE 54745', '947.870.9701x96405', '1967', 'hunter34@example.net'),('Daniel, King and Sanchez', '084 Matthew Mount
+Port Rebecca, PW 84544', '204-023-3583x02998', '2010', 'mccoyjeff@example.org'),('Wagner Group', '37071 Madison Spur Suite 585
+South Christopherstad, AL 18142', '288-333-4003x780', '2003', 'david69@example.net'),('Jefferson, Mckee and Baxter', 'Unit 9546 Box 4008
+DPO AE 52128', '695.947.1029x1689', '1961', 'paul30@example.com');

@@ -40,7 +40,7 @@ def generate_sql(CarDealerships):
     with open("car_dealerships.sql", "w") as file:
         file.write("TRUNCATE TABLE car_dealership RESTART IDENTITY CASCADE;")
 
-    sql = "INSERT INTO CarDealership (name, address, phone, founding_year, email_address) VALUES "
+    sql = "INSERT INTO car_dealership (name, address, phone, founding_year, email_address) VALUES "
     i = 0
     for CarDealership in CarDealerships:
         sql += f"('{CarDealership.name}', '{CarDealership.address}', '{CarDealership.phone}', '{CarDealership.founding_year}', '{CarDealership.email_address}'),"
