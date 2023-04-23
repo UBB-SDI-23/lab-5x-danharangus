@@ -4,7 +4,7 @@ ROWS_PER_BATCH = 10
 from faker import Faker
 
 
-class Student:
+class Customer:
 
     def __init__(self, first_name, last_name, age, email, phone_number):
         self.first_name = first_name
@@ -33,7 +33,7 @@ def generate_customers(amount):
         email = faker.email()
         phone_number = faker.phone_number()
 
-        customers.append(Student(first_name, last_name, age, email, phone_number))
+        customers.append(Customer(first_name, last_name, age, email, phone_number))
 
     return customers
 
