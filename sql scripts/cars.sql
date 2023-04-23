@@ -25,3 +25,4 @@ INSERT INTO Car (make, model, year, price, is_electric) VALUES ('INFINITI', 'S5'
 ('Dodge', '300', '2002', '11293', '0'),
 ('Chevrolet', 'Continental', '2018', '43340', '0'),
 ('Mercedes-Benz', 'King Cab', '1984', '34325', '0'),;
+INSERT INTO Car (make, model, year, price, is_electric) VALUES ('Chevrolet', 'X5', '1975', '28647', '0'),('Buick', 'GX', '1985', '17890', '0'),('Dodge', 'Land Cruiser', '1978', '45648', '0'),('MAZDA', 'Ranger Regular Cab', '1994', '22707', '1'),('Volkswagen', 'Optima', '2018', '35117', '1'),('Mercedes-Benz', 'Corrado', '2014', '12672', '0'),('Ford', '300 SE', '2001', '13304', '1'),('Ford', '3500 Crew Cab', '2004', '36080', '0'),('smart', 'Azera', '1977', '10906', '1');
