@@ -47,7 +47,7 @@ def generate_sql(data):
     with open("loyal_customers0.sql", "w") as file:
         file.write("TRUNCATE TABLE loyal_customers RESTART IDENTITY CASCADE;")
 
-    sql = "INSERT INTO loyal_customers (dealership_id, customer_id, loyalty_points, registration_year) VALUES "
+    sql = "INSERT INTO loyal_customers (car_dealership_id, customer_id, loyalty_points, registration_year) VALUES "
     i = 0
     file_index = 0
     for entity in data:
@@ -59,12 +59,12 @@ def generate_sql(data):
                 file.write(sql[:-2] + ";")
 
             print(f"Written {i} rows to file {file_index}")
-            sql = "INSERT INTO loyal_customers (dealership_id, customer_id, loyalty_points, registration_year) VALUES "
+            sql = "INSERT INTO loyal_customers (car_dealership_id, customer_id, loyalty_points, registration_year) VALUES "
 
         if i % (ROWS_TO_GENERATE * DATA_FOR_ROW_TO_GENERATE // AMOUNT_OF_FILES) == 0:
             file_index += 1
 
-    if sql != "INSERT INTO loyal_customers (dealership_id, customer_id, loyalty_points, registration_year) VALUES ":
+    if sql != "INSERT INTO loyal_customers (car_dealership_id, customer_id, loyalty_points, registration_year) VALUES ":
         with open(f"loyal_customers0.sql", "a") as file:
             file.write(sql[:-2] + ";")
         print(f"Written {i} rows to file - last batch")
