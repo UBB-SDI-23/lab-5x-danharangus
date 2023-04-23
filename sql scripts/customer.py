@@ -1,5 +1,5 @@
-ROWS_TO_GENERATE = 10
-ROWS_PER_BATCH = 10
+ROWS_TO_GENERATE = 1000
+ROWS_PER_BATCH = 100
 
 from faker import Faker
 
