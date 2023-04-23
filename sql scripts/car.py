@@ -44,7 +44,7 @@ def generate_cars(amount):
 
 
 def generate_sql(cars):
-    with open("courses.sql", "w") as file:
+    with open("cars.sql", "w") as file:
         file.write("TRUNCATE TABLE Car RESTART IDENTITY CASCADE;")
 
     sql = "INSERT INTO Car (make, model, year, price, is_electric) VALUES "
@@ -54,7 +54,7 @@ def generate_sql(cars):
         if i % ROWS_PER_BATCH == 0:
             # write the sql to a file
 
-            with open("courses.sql", "a") as file:
+            with open("cars.sql", "a") as file:
                 file.write(sql[:-1] + ";\n")
 
             print(f"Written {i} rows to file")
