@@ -33,7 +33,7 @@ def generate():
 
             while customer_id in customer_ids:
                 customer_id = faker.random_int(1, 1000)
-                customer_ids.append(customer_id)
+            customer_ids.append(customer_id)
 
             registration_year = faker.random_int(2000, 2020)
             loyalty_points = faker.random_int(0, 1000)
