@@ -38,7 +38,7 @@ def generate_car_dealerships(amount):
 
 def generate_sql(CarDealerships):
     with open("car_dealerships.sql", "w") as file:
-        file.write("TRUNCATE TABLE CarDealership RESTART IDENTITY CASCADE;")
+        file.write("TRUNCATE TABLE car_dealership RESTART IDENTITY CASCADE;")
 
     sql = "INSERT INTO CarDealership (name, address, phone, founding_year, email_address) VALUES "
     i = 0
@@ -51,11 +51,11 @@ def generate_sql(CarDealerships):
                 file.write(sql[:-1] + ";\n")
 
             print(f"Written {i} rows to file")
-            sql = "INSERT INTO CarDealership (name, address, phone, founding_year, email_address) VALUES "
+            sql = "INSERT INTO car_dealership (name, address, phone, founding_year, email_address) VALUES "
 
         i += 1
 
-    if sql != "INSERT INTO CarDealership (name, address, phone, founding_year, email_address) VALUES ":
+    if sql != "INSERT INTO car_dealership (name, address, phone, founding_year, email_address) VALUES ":
         with open("car_dealerships.sql", "a") as file:
             file.write(sql[:-1] + ";")
         print(f"Written {i} rows to file - last batch")
