@@ -1,17 +1,10 @@
-ROWS_TO_GENERATE = 10
-ROWS_PER_BATCH = 10
+ROWS_TO_GENERATE = 10000000
+ROWS_PER_BATCH = 100
 
 from faker import Faker
 from faker_vehicle import VehicleProvider
 
 class Car:
-    # name = models.CharField(max_length = 128)
-    # description = models.CharField(max_length = 512)
-    # teacher = models.ForeignKey('Teacher', on_delete = models.CASCADE, related_name = "courses")
-    # students = models.ManyToManyField('Student', through = 'StudentCourse')
-    # fee = models.IntegerField()
-    # size = models.IntegerField()
-
     def __init__(self, make, model, year, price, is_electric):
         self.make = make
         self.model = model
