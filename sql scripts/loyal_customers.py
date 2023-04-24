@@ -1,5 +1,5 @@
-ROWS_TO_GENERATE = 100
-DATA_FOR_ROW_TO_GENERATE = 10
+ROWS_TO_GENERATE = 100000
+DATA_FOR_ROW_TO_GENERATE = 100
 ROWS_PER_BATCH = 1000
 AMOUNT_OF_FILES = 1
 
@@ -29,10 +29,10 @@ def generate():
         customer_ids = []
         for _ in range(DATA_FOR_ROW_TO_GENERATE):
             dealership_id = i + 1
-            customer_id = faker.random_int(1, 1000)
+            customer_id = faker.random_int(1, 10000000)
 
             while customer_id in customer_ids:
-                customer_id = faker.random_int(1, 1000)
+                customer_id = faker.random_int(1, 1000000)
             customer_ids.append(customer_id)
 
             registration_year = faker.random_int(2000, 2020)
@@ -49,20 +49,16 @@ def generate_sql(data):
 
     sql = "INSERT INTO loyal_customers (car_dealership_id, customer_id, loyalty_points, registration_year) VALUES "
     i = 0
-    file_index = 0
     for entity in data:
         i += 1
 
         sql += f"({entity.dealership_id}, {entity.customer_id}, '{entity.loyalty_points}', {entity.registration_year}), "
         if i % (ROWS_PER_BATCH * DATA_FOR_ROW_TO_GENERATE) == 0:
-            with open(f"loyal_customers{file_index}.sql", "a") as file:
+            with open(f"loyal_customers0.sql", "a") as file:
                 file.write(sql[:-2] + ";")
 
-            print(f"Written {i} rows to file {file_index}")
+            print(f"Written {i} rows to file")
             sql = "INSERT INTO loyal_customers (car_dealership_id, customer_id, loyalty_points, registration_year) VALUES "
-
-        if i % (ROWS_TO_GENERATE * DATA_FOR_ROW_TO_GENERATE // AMOUNT_OF_FILES) == 0:
-            file_index += 1
 
     if sql != "INSERT INTO loyal_customers (car_dealership_id, customer_id, loyalty_points, registration_year) VALUES ":
         with open(f"loyal_customers0.sql", "a") as file:
